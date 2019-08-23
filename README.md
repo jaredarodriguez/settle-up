@@ -34,6 +34,14 @@
 
 #WIREFRAME
 
+#Login Page
 ![Image of Login-page](https://github.com/jrodriguez082046/settle-up/blob/master/assets/Login-page.png)
 
+#Summary-page
 ![Image of Summary-page](https://github.com/jrodriguez082046/settle-up/blob/master/assets/Summary-page.png)
+
+#Transaction-page
+![Image of Transaction-page](https://github.com/jrodriguez082046/settle-up/blob/master/assets/Transaction-page.png)
+
+#Log-sheet
+![Image of Log-sheet page](https://github.com/jrodriguez082046/settle-up/blob/master/assets/Log-sheet.png)
