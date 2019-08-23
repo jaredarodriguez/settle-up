@@ -30,3 +30,14 @@ passport.use(
     }
   )
 );
+
+passport.serializeUser(function(band, done) {
+  done(null, student.id);
+});
+
+passport.deserializeUser(function(id, done) {
+  Band.findById(id, function(err, band) {
+    if (err) return done(err);
+    done(null, student);
+  });
+});
