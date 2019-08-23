@@ -34,4 +34,6 @@
 
 #WIREFRAME
 
-!
+![Image of Login-page](https://github.com/jrodriguez082046/settle-up/blob/master/assets/Login-page.png)
+
+![Image of Summary-page](https://github.com/jrodriguez082046/settle-up/blob/master/assets/Summary-page.png)
