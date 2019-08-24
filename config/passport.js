@@ -37,7 +37,6 @@ passport.serializeUser(function(band, done) {
 
 passport.deserializeUser(function(id, done) {
   Band.findById(id, function(err, band) {
-    if (err) return done(err);
-    done(null, student);
+    done(err, student);
   });
 });
