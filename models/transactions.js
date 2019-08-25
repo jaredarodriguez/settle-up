@@ -10,6 +10,7 @@ const transactionSchema = new Transaction({
     required: true,
     type: String
   },
+  owner: { type: String },
   timestamps: true
 });
 
