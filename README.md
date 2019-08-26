@@ -6,7 +6,7 @@
 
 #The log sheet is its own separate view. A nav bar will help the user get to that page. On the page, there will be an option to use a drop down bar for month user wishes to create expense. Once the user clicks a month, it will bring them to a page outlining how money was made and spent
 
-#WIREFRAME
+#WIRE-FRAME
 
 #Login Page
 ![Image of Login-page](https://github.com/jrodriguez082046/settle-up/blob/master/assets/Login-page.png)

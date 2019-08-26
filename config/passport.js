@@ -10,7 +10,7 @@ passport.use(
       callbackURL: process.env.GOOGLE_CALLBACK
     },
     function(accessToken, refreshToken, profile, cb) {
-      Band.findOne({ googleId: profile.id }, function(err, student) {
+      Band.findOne({ googleId: profile.id }, function(err, band) {
         if (err) return cb(err);
         if (band) {
           return cb(null, band);
@@ -32,11 +32,11 @@ passport.use(
 );
 
 passport.serializeUser(function(band, done) {
-  done(null, student.id);
+  done(null, band.id);
 });
 
 passport.deserializeUser(function(id, done) {
   Band.findById(id, function(err, band) {
-    done(err, student);
+    done(err, band);
   });
 });
