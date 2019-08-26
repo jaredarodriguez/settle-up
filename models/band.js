@@ -7,12 +7,11 @@ var bandSchema = new mongoose.Schema({
   },
   memberName: {
     type: String,
-    reuired: true
+    required: true
   },
   email: String,
   avatar: {
-    type: String,
-    required: true
+    type: String
   },
   googleId: String
 });

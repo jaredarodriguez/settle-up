@@ -7,24 +7,11 @@ module.exports = {
 };
 
 function index(req, res, next) {
-  console.log(req.query);
-  let modelQuery = req.query.name
-    ? { name: new RegExp(req.query.name, "i") }
-    : {};
-  // Default to sorting by name
-  let sortKey = req.query.sort || "name";
-  Band.find(modelQuery)
-    .sort(sortKey)
-    .exec(function(err, bands) {
-      if (err) return next(err);
-      // Passing search values, name & sortKey, for use in the EJS
-      res.render("bands/index", {
-        bands,
-        user: req.user,
-        name: req.query.name,
-        sortKey
-      });
-    });
+  Band.find({}).then(function(bands) {
+    console.log(req.user);
+    // Passing search values, name & sortKey, for use in the EJS
+    res.render("bands/index", { user: req.user, title: "Band Roster", bands });
+  });
 }
 
 function newBand(req, res) {
@@ -32,10 +19,11 @@ function newBand(req, res) {
 }
 
 function create(req, res) {
+  console.log(req.body);
   var band = new Band(req.body);
   console.log(band);
-  band.save(function(err) {
-    if (err) return res.redirect("/bands/new");
+  band.save(function() {
+    // if (err) return res.redirect("/bands/new");
     res.redirect("/bands");
   });
 }

@@ -18,13 +18,13 @@ router.get(
   "/oauth2callback",
   passport.authenticate("google", {
     successRedirect: "/bands",
-    failureRedirect: "/"
+    failureRedirect: "/bands"
   })
 );
 
 router.get("/logout", function(req, res) {
   req.logout();
-  res.redirect("/bands");
+  res.redirect("/");
 });
 
 module.exports = router;
