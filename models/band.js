@@ -1,10 +1,19 @@
 var mongoose = require("mongoose");
 
 var bandSchema = new mongoose.Schema({
-  name: String,
+  title: {
+    type: String,
+    required: true
+  },
+  memberName: {
+    type: String,
+    reuired: true
+  },
   email: String,
-  band: String,
-  avatar: String,
+  avatar: {
+    type: String,
+    required: true
+  },
   googleId: String
 });
 
