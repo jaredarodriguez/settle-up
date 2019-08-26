@@ -14,7 +14,7 @@ require("./config/passport");
 
 var indexRouter = require("./routes/index");
 var bandsRouter = require("./routes/bands");
-
+var transactionsRouter = require("./routes/transactions");
 const app = express();
 
 // view engine setup
