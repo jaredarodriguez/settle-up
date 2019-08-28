@@ -7,5 +7,6 @@ var bandsCtrl = require("../controllers/bands");
 router.get("/", bandsCtrl.index);
 router.get("/new", bandsCtrl.new);
 router.post("/new", bandsCtrl.create);
+router.delete("/:id", bandsCtrl.delete);
 
 module.exports = router;

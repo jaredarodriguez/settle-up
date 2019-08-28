@@ -1,19 +1,11 @@
 var mongoose = require("mongoose");
+var Schema = mongoose.Schema;
 
-var bandSchema = new mongoose.Schema({
-  title: {
-    type: String,
-    required: true
-  },
-  memberName: {
-    type: String,
-    required: true
-  },
-  email: String,
-  avatar: {
-    type: String
-  },
-  googleId: String
+var bandSchema = new Schema({
+  title: { type: String },
+  memberName: { type: String }
+  // email: { type: String, required: true },
+  // avatar: { type: String },
+  // googlId: { type: String }
 });
-
 module.exports = mongoose.model("Band", bandSchema);
