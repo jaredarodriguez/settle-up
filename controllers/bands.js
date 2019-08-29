@@ -4,7 +4,8 @@ module.exports = {
   index,
   new: newBand,
   create,
-  delete: deleteBand
+  delete: deleteBand,
+  show
 };
 
 function index(req, res, next) {
@@ -35,9 +36,8 @@ function deleteBand(req, res) {
   });
 }
 
-// router.delete("/:id", (req, res) => {
-//   console.log(req.params.id, " id in delete route");
-//   Fruits.findByIdAndRemove(req.params.id, (err, deleteFruit) => {
-//     res.redirect("/fruits");
-//   });
-// });
+function show(req, res) {
+  Band.findById(req.params.id, function(err, bands) {
+    res.render("bands/show");
+  });
+}
