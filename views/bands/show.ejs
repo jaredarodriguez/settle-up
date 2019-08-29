@@ -5,10 +5,28 @@
 </div>
 </html>
 
-<section>
-        <div>Band name: <%= b.title %></div>
-        <div>Band member: <%= b.memberName %></div>
-        <hr>
-      </section>
+<tbody>
+    <div>Band: <%= bands.title %></div>
+    <div>Member Name: <%= bands.memberName %></div>
+</tbody>
 
+<form
+  id = 'add-transaction'
+  method = 'POST'
+  action = '/bands/<%= bands._id%>'>
+
+  <label> This is where a transaction would go 
+   <input type = 'text' name = 'transaction'>
+  </label>
+  <hr>
+  <% bands.transaction.forEach(function(idx){ %>
+    <%= idx.transaction %>
+  <hr>
+ 
 </form>
+ 
+<% }) %>
+
+
+
+

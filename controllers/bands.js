@@ -5,8 +5,19 @@ module.exports = {
   new: newBand,
   create,
   delete: deleteBand,
-  show
+  show,
+  createTransaction
 };
+
+function createTransaction(req, res) {
+  Band.findById(req.params.id, function(err, bands) {
+    console.log(req.body);
+    bands.transaction.push(req.body);
+    bands.save(function(err) {
+      res.redirect(`/bands/${bands._id}`);
+    });
+  });
+}
 
 function index(req, res, next) {
   Band.find({}).then(function(bands) {
@@ -38,6 +49,9 @@ function deleteBand(req, res) {
 
 function show(req, res) {
   Band.findById(req.params.id, function(err, bands) {
-    res.render("bands/show");
+    res.render("bands/show", {
+      title: "Log Sheet",
+      bands
+    });
   });
 }

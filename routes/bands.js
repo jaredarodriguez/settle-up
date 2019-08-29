@@ -9,4 +9,5 @@ router.get("/new", bandsCtrl.new);
 router.post("/new", bandsCtrl.create);
 router.delete("/:id", bandsCtrl.delete);
 router.get("/:id", bandsCtrl.show);
+router.post("/:id", bandsCtrl.createTransaction);
 module.exports = router;
