@@ -1,32 +1,28 @@
-</main>
-</body>
-<div style="text-align: left">
-<a href="/logout">Log Out</a>
-</div>
-</html>
-
 <tbody>
-    <div>Band: <%= bands.title %></div>
-    <div>Member Name: <%= bands.memberName %></div>
+  <div>Band: <%= band.title %></div>
+  <div>Member Name: <%= band.memberName %></div>
 </tbody>
 
-<form
-  id = 'add-transaction'
-  method = 'POST'
-  action = '/bands/<%= bands._id%>'>
-
-  <label> This is where a transaction would go 
-   <input type = 'text' name = 'transaction'>
+<form id="add-transaction" method="POST" action="/bands/<%= band._id%>">
+  <label>
+    Expense Category
+    <input type="text" name="transaction" />
   </label>
-  <hr>
-  <% bands.transaction.forEach(function(idx){ %>
-    <%= idx.transaction %>
-  <hr>
- 
+
+  <label>
+    Price
+    <input type="text" name="price" />
+  </label>
+  <input type="submit" value="submit" />
 </form>
- 
+<hr />
+<% band.transaction.forEach(function(idx, idx2){ %> <%=idx.transaction%> <%=
+idx.price %>
+<form
+  action="/bands/<%= band._id%>/transactions/<%= idx._id %>?_method=DELETE"
+  method="POST"
+>
+  <button type="submit">Delete</button>
+</form>
+<hr />
 <% }) %>
-
-
-
-

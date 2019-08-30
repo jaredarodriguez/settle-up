@@ -1,4 +1,4 @@
-const Band = require("../models/band");
+const User = require("../models/user");
 
 module.exports = {
   index,
@@ -6,23 +6,26 @@ module.exports = {
   create,
   delete: deleteBand,
   show,
-  createTransaction
+  createTransaction,
+  deleteOne
 };
 
 function createTransaction(req, res) {
-  Band.findById(req.params.id, function(err, bands) {
+  User.findById(req.user.id, function(err, manager) {
     console.log(req.body);
-    bands.transaction.push(req.body);
-    bands.save(function(err) {
-      res.redirect(`/bands/${bands._id}`);
+    console.log(req.params);
+    let band = manager.band.id(req.params.id);
+    band.transaction.push(req.body);
+    manager.save(function(err) {
+      res.redirect(`/bands/${req.params.id}`);
     });
   });
 }
 
 function index(req, res, next) {
-  Band.find({}).then(function(bands) {
+  User.findById(req.user.id).then(function(manager) {
     // Passing search values, name & sortKey, for use in the EJS
-    res.render("bands/index", { title: "Band Roster", bands });
+    res.render("bands/index", { title: "Band Roster", manager });
   });
 }
 
@@ -31,27 +34,53 @@ function newBand(req, res) {
 }
 
 function create(req, res) {
-  console.log(req.body);
-  var band = new Band(req.body);
-  console.log(band);
-  band.save(function(err) {
+  User.findById(req.user.id, function(err, manager) {
+    // console.log(manager);
+    // console.log(req.body);
+    manager.band.push(req.body);
+    // console.log(manager);
     if (err) return res.redirect("/bands/new");
-    res.redirect("/bands");
+    manager.save(function(err) {
+      res.redirect("/bands");
+    });
   });
 }
 
 function deleteBand(req, res) {
-  Band.findByIdAndRemove(req.params.id, (err, deleteBand) => {
-    console.log("deleting now");
-    res.redirect("/bands");
+  User.findById(req.user.id, function(err, manager) {
+    manager.band.remove(req.params.id);
+    manager.save(function() {
+      res.redirect("/bands");
+    });
   });
 }
 
 function show(req, res) {
-  Band.findById(req.params.id, function(err, bands) {
+  User.findById(req.user.id, function(err, manager) {
+    console.log(manager.band.transaction);
+    let band = manager.band.id(req.params.id);
+    console.log(band);
     res.render("bands/show", {
       title: "Log Sheet",
-      bands
+      manager,
+      band
+    });
+  });
+}
+
+function deleteOne(req, res) {
+  console.log(req.params);
+  User.findById(req.user.id, function(err, manager) {
+    let band = manager.band.id(req.params.band);
+    console.log(band);
+    // let transaction = band.id;
+    band.transaction.remove(req.params.id);
+    manager.save(function() {
+      res.render("bands/show", {
+        title: "Log Sheet",
+        manager,
+        band
+      });
     });
   });
 }
