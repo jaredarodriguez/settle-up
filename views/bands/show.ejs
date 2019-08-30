@@ -1,3 +1,5 @@
+<%- include('../partials/header') %>
+
 <tbody>
   <div>Band: <%= band.title %></div>
   <div>Member Name: <%= band.memberName %></div>
@@ -26,3 +28,20 @@ idx.price %>
 </form>
 <hr />
 <% }) %>
+
+<div id="one"></div>
+
+<script defer>
+  let divSelection = d3.select("#one").selectAll("div");
+  // console.log(band.transaction);
+
+  divSelection
+    .data(band.transaction)
+    .enter()
+    .append("div")
+    .text(function(d) {
+      return d.transaction + " : " + d.price + " money";
+    });
+</script>
+
+<%- include('../partials/footer') %>
