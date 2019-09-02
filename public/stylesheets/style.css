@@ -12,9 +12,10 @@ table {
 }
 
 .bar {
-  background-color: green;
-  border: 4px solid blue;
-  height: 20px;
+  border-style: groove; 
+  background-color: #99b6bd;
+  border: 4px solid cornflowerblue; 
+  height: 30px;
 }
 
 .welcome-line {
