@@ -57,9 +57,7 @@ function deleteBand(req, res) {
 
 function show(req, res) {
   User.findById(req.user.id, function(err, manager) {
-    console.log(manager.band.transaction);
     let band = manager.band.id(req.params.id);
-    console.log(band);
     res.render("bands/show", {
       title: "Log Sheet",
       manager,

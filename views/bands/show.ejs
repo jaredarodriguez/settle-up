@@ -1,47 +1,64 @@
 <%- include('../partials/header') %>
+<body>
+  <tbody>
+    <div>Band: <%= band.title %></div>
+    <div>Member Name: <%= band.memberName %></div>
+  </tbody>
 
-<tbody>
-  <div>Band: <%= band.title %></div>
-  <div>Member Name: <%= band.memberName %></div>
-</tbody>
+  <form id="add-transaction" method="POST" action="/bands/<%= band._id%>">
+    <label>
+      Expense Category
+      <input type="text" name="transaction" />
+    </label>
 
-<form id="add-transaction" method="POST" action="/bands/<%= band._id%>">
-  <label>
-    Expense Category
-    <input type="text" name="transaction" />
-  </label>
+    <label>
+      Price
+      <input type="text" name="price" />
+    </label>
+    <input type="submit" value="submit" />
+  </form>
+  <hr />
+  <% band.transaction.forEach(function(idx){ %> <%=idx.transaction%> <%=
+  idx.price %>
+  <form
+    action="/bands/<%= band._id%>/transactions/<%= idx._id %>?_method=DELETE"
+    method="POST"
+  >
+    <button type="submit">Delete</button>
+  </form>
+  <hr />
+  <% }) %>
 
-  <label>
-    Price
-    <input type="text" name="price" />
-  </label>
-  <input type="submit" value="submit" />
-</form>
-<hr />
-<% band.transaction.forEach(function(idx, idx2){ %> <%=idx.transaction%> <%=
-idx.price %>
-<form
-  action="/bands/<%= band._id%>/transactions/<%= idx._id %>?_method=DELETE"
-  method="POST"
->
-  <button type="submit">Delete</button>
-</form>
-<hr />
-<% }) %>
+  <button id="chart" value="<%= band._id%>" type="submit">Get Chart</button>
+  <div id="one"></div>
 
-<div id="one"></div>
+  <script defer>
 
-<script defer>
-  let divSelection = d3.select("#one").selectAll("div");
-  // console.log(band.transaction);
-
-  divSelection
-    .data(band.transaction)
-    .enter()
-    .append("div")
-    .text(function(d) {
-      return d.transaction + " : " + d.price + " money";
+    async function dataSearch (id) {
+      try {
+      let request = await fetch(`/api/${id}`)
+      let resultJSON = await request.json()
+      return await resultJSON
+      } catch (error){console.log(error)}
+      
+    }
+    var button = document.getElementById("chart");
+    button.addEventListener("click", function(evt) {
+      dataSearch(evt.target.value).then(results => {
+      let divSelection = d3.select("#one").selectAll("div");
+      divSelection
+      .data(results)
+      .enter()
+      .append("div")
+      .attr("class", "bar")
+      .text(function(d) {
+        return d.transaction + " : " + d.price;
+      })
+      .style("width", function(d){
+        return d.price * 5 + "px"
+      })
+      })
     });
-</script>
-
+  </script>
+</body>
 <%- include('../partials/footer') %>

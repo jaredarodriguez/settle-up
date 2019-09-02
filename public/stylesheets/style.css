@@ -8,6 +8,11 @@ a {
 }
 
 table {
-  color: green;
-  background-color: rgb(201, 182, 182);
+  color: blue;
+}
+
+.bar {
+  background-color: green;
+  border: 4px solid blue;
+  height: 20px;
 }

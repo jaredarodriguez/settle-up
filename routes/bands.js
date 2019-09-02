@@ -1,6 +1,5 @@
 var express = require("express");
 var router = express.Router();
-var express = require("express");
 var bandsCtrl = require("../controllers/bands");
 /* GET users listing. */
 
