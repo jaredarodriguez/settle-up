@@ -16,3 +16,21 @@ table {
   border: 4px solid blue;
   height: 20px;
 }
+
+.welcome-line {
+  border: thick double cornflowerblue;
+  text-align: center;
+  background-color: #a9c0cb;
+  font-family: "Crimson Text", serif;
+  font-size: 60px;
+  height: 100px;
+}
+
+.homepage-title {
+  border: thick double cornflowerblue;
+  text-align: center;
+  background-color: #a9c0cb;
+  font-family: "Crimson Text", serif;
+  font-size: 60px;
+  height: 100px;
+}
