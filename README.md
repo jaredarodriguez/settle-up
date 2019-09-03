@@ -2,34 +2,38 @@
 
 Settle-up is an app for managers looking to better organize their way of managing bands finances.
 
-#WIRE-FRAME
+# WIRE-FRAME
 
-#Login Page
+# Login Page
+
 ![Image of Login-page](https://github.com/jrodriguez082046/settle-up/blob/master/assets/Login-page.png)
 
-#Summary-page
+# Summary-page
+
 ![Image of Summary-page](https://github.com/jrodriguez082046/settle-up/blob/master/assets/Summary-page.png)
 
-#Transaction-page
+# Transaction-page
+
 ![Image of Transaction-page](https://github.com/jrodriguez082046/settle-up/blob/master/assets/Transaction-page.png)
 
-#Log-sheet
+# Log-sheet
+
 ![Image of Log-sheet page](https://github.com/jrodriguez082046/settle-up/blob/master/assets/Log-sheet.png)
 
-#TECH USED
+# TECH USED
 
-#javascript
-#css
-#html
-#express
-#node.js
-#mongo.db
-#oAuth
+*Javascript
+*CSS
+*HTML
+*Node.js
+*Google OAuth
+*Express
+\*MongoDB
 
-#GETTING STARTED
+# GETTING STARTED
 
-#NEXT STEPS
+# NEXT STEPS
 
-#add a feature that sends notification when an expense is added
+1. add a feature that sends notification when an expense is added
 
-#add the ability for user to type in transaction not found in dropdown menu which sends to misc. category
+2. add the ability for user to type in transaction not found in dropdown menu which sends to misc. category
