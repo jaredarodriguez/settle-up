@@ -33,8 +33,7 @@ a {
   font-size: 60px;
   height: 100px;
 }
-
-.login {
+*/ .login {
   display: flex;
   justify-content: center;
   font-size: 50px;
@@ -58,6 +57,28 @@ a {
 }
 
 .bandMember {
+  color: white;
+  display: flex;
+  align-content: right;
+  font-variant: small-caps;
+  font-size: 25px;
+  font-family: "Roboto Slab", serif;
+  font-weight: bolder;
+  text-shadow: 2px 2px #ff0000;
+}
+
+.question1 {
+  color: white;
+  display: flex;
+  align-content: right;
+  font-variant: small-caps;
+  font-size: 25px;
+  font-family: "Roboto Slab", serif;
+  font-weight: bolder;
+  text-shadow: 2px 2px #ff0000;
+}
+
+.question2 {
   color: white;
   display: flex;
   align-content: right;
