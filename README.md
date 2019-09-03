@@ -31,7 +31,7 @@ Settle-up is an app for managers looking to better organize their way of managin
 - MongoDB
   https://settleup.herokuapp.com/
 
-#User Stories
+# User Stories
 
 - AAU I want to have the ability to add bands to my account
 
