@@ -1,8 +1,8 @@
 # PROJECT TITLE : 'Settle-Up'
 
-===
+=====
 Settle-up is an app for managers looking to better organize their way of managing bands finances.
-
+=====
 #WIRE-FRAME
 
 #Login Page
