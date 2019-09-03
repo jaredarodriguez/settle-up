@@ -22,18 +22,29 @@ Settle-up is an app for managers looking to better organize their way of managin
 
 # TECH USED
 
-*Javascript
-*CSS
-*HTML
-*Node.js
-*Google OAuth
-*Express
-\*MongoDB
+- Javascript
+- CSS
+- HTML
+- Node.js
+- Google OAuth
+- Express
+- MongoDB
+  https://settleup.herokuapp.com/
 
-# GETTING STARTED
+#User Stories
+
+- AAU I want to have the ability to add bands to my account
+
+- AAU I want the ability to delete bands
+
+- AAU I want the ability to see how money is being spent with a chart
 
 # NEXT STEPS
 
-1. add a feature that sends notification when an expense is added
+- add the ability for a members of a band to belong to a one shared account
 
-2. add the ability for user to type in transaction not found in dropdown menu which sends to misc. category
+- make feature where income for each band can be entered
+
+* style more with bootstrap
+
+* make more user friendly
