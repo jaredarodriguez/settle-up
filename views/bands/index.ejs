@@ -1,27 +1,27 @@
 <%- include('../partials/header') %>
 <body>
-<table>
-  <thead>
-    <th id="bandName">Band Name</th>
-    <th id="bandMember">Member</th>
-  </thead>
-  <tbody>
-    <% manager.band.forEach(function(b, id) { %>
-    <tr>
-      <td><%= b.title %></td>
-      <td><%= b.memberName %></td>
-      <td>
-        <form action="/bands/<%= b._id %>?_method=DELETE" method="POST">
-          <button type="submit">Delete</button>
-        </form>
-      </td>
-      <td>
-        <a href="/bands/<%= b._id %>">log sheet</a>
-      </td>
-    </tr>
-    <% }); %>
-  </tbody>
-</table>
+  <table class="table">
+    <thead>
+      <th class="bandName" id="bandName">Band Name</th>
+      <th class="bandMember" id="bandMember">Member</th>
+    </thead>
+    <tbody>
+      <% manager.band.forEach(function(b, id) { %>
+      <tr>
+        <td><%= b.title %></td>
+        <td><%= b.memberName %></td>
+        <td>
+          <form action="/bands/<%= b._id %>?_method=DELETE" method="POST">
+            <button type="submit">Delete</button>
+          </form>
+        </td>
+        <td>
+          <a href="/bands/<%= b._id %>">log sheet</a>
+        </td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
 </body>
 
 <%- include('../partials/footer') %>
